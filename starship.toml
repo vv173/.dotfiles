@@ -1,0 +1,98 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit \
+$git_status \
+$fill\
+$sudo\
+$cmd_duration\
+$line_break\
+$container\
+$shell\
+$character"""
+
+[character]
+format = ' $symbol '
+success_symbol = '[>](#7dcfff bold)'
+error_symbol = '[>](red bold)'
+
+[fill]
+symbol = " "
+disabled = false
+
+[username]
+style_root = '#f7768e bold'
+style_user = '#c0caf5 bold'
+format = '[ \[$user\]:]($style)'
+show_always = false
+disabled = false
+
+[hostname]
+ssh_only = true
+ssh_symbol = ''
+style = '#7aa2f7 bold'
+format = '[$ssh_symbol$hostname]($style)'
+disabled = false
+
+[directory]
+format = '[ $path]($style) '
+style = '#7dcfff bold'
+truncation_symbol = '../'
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
+format = '[$duration]($style) '
+style = '#7dcfff bold'
+show_notifications = false
+
+[git_branch]
+always_show_remote = false
+style = '#bb9af7 bold'
+format = '[\($branch(:$remote_branch)\)]($style) '
+disabled = false
+
+[git_commit]
+commit_hash_length = 7
+format = '[\($hash$tag\)]($style) '
+style = '#73daca bold'
+only_detached = true
+tag_disabled = false
+tag_symbol = ' '
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+conflicted = '='
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = ''
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = 'x'
+typechanged = ""
+style = '#f7768e bold'
+ignore_submodules = false
+disabled = false
+
+[aws]
+format = '$symbol[($profile )(\($region\) )(\[$duration\] )]($style)'
+symbol = '[AWS ](yellow bold)'
+style = ''
+force_display = false
+disabled = false
+
+[azure]
+format = '$symbol[($subscription)]($style) '
+symbol = '[Az ](blue bold) '
+style = ''
+
+[gcloud]
+format = '$symbol[$account(@$domain)(\($region\))]($style) '
+symbol = '[GCP ](green bold)'
+style = ''
