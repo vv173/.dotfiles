@@ -23,6 +23,7 @@ eval "$(starship init bash)"
 
 # Source git global configuration file
 export GIT_CONFIG_GLOBAL="$HOME/.config/.gitconfig"
+
 # Source starship configuration file
 export STARSHIP_CONFIG="$HOME/.config/starship.toml"
 
@@ -39,3 +40,14 @@ if [ -d ~/.bashrc.d ]; then
 fi
 
 unset rc
+
+## Command aliases
+alias ll=' ls -lhF --time-style=long-iso --color=auto'
+alias la=' ls -lhFa --time-style=long-iso --color=auto'
+
+## Functions
+# Make a directory, then go there
+md() {
+    test -n "$1" || return
+    mkdir -p "$1" && cd "$1"
+}
