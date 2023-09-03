@@ -10,6 +10,20 @@
 	defaultBranch = main
 [core]
 	editor = vim
+[color "branch"]
+	current = green bold
+	local = yellow bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
 [push]
 	autoSetupRemote = true
 [alias]
