@@ -42,8 +42,17 @@ fi
 unset rc
 
 ## Command aliases
+# Bash aliases
+
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
 alias ll=' ls -lhF --time-style=long-iso --color=auto'
 alias la=' ls -lhFa --time-style=long-iso --color=auto'
+
+# Docker aliases
 
 ## Functions
 # Make a directory, then go there
