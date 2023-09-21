@@ -26,6 +26,8 @@
 	untracked = red bold
 [push]
 	autoSetupRemote = true
+[pull]
+	rebase = true
 [alias]
 	plog = log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
 	pristine = !git reset --hard && git clean -dff
