@@ -63,3 +63,14 @@ md() {
     test -n "$1" || return
     mkdir -p "$1" && cd "$1"
 }
+
+# Run yq in docker container
+yq() {
+  docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
+}
+
+# Run jq in docker container
+jq() {
+  docker run --rm -i -v "${PWD}":/workdir ghcr.io/jqlang/jq "$@"
+}
+
