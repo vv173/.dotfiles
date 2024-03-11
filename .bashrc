@@ -74,3 +74,7 @@ jq() {
   docker run --rm -i -v "${PWD}":/workdir ghcr.io/jqlang/jq "$@"
 }
 
+hadolint() {
+    docker run --rm -i hadolint/hadolint hadolint "$@" 
+}
+
