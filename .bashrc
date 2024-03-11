@@ -75,6 +75,9 @@ jq() {
 }
 
 hadolint() {
-    docker run --rm -i hadolint/hadolint hadolint "$@" 
+  docker run --rm -i hadolint/hadolint hadolint "$@" 
 }
 
+shellcheck() {
+  docker run --rm -i -v "${PWD}:/mnt" koalaman/shellcheck:stable "$@"
+}
