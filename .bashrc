@@ -66,12 +66,12 @@ md() {
 
 # Run yq in docker container
 yq() {
-  docker run --rm -i -v "${PWD}":/workdir mikefarah/yq "$@"
+  docker run --rm -i -w /workdir -v "${PWD}":/workdir mikefarah/yq "$@"
 }
 
 # Run jq in docker container
 jq() {
-  docker run --rm -i -v "${PWD}":/workdir ghcr.io/jqlang/jq "$@"
+  docker run --rm -i -w /workdir -v "${PWD}":/workdir ghcr.io/jqlang/jq "$@"
 }
 
 hadolint() {
@@ -79,5 +79,5 @@ hadolint() {
 }
 
 shellcheck() {
-  docker run --rm -i -v "${PWD}:/mnt" koalaman/shellcheck:stable "$@"
+  docker run --rm -i -w /mnt -v "${PWD}:/mnt" koalaman/shellcheck:stable "$@"
 }
