@@ -81,3 +81,11 @@ hadolint() {
 shellcheck() {
   docker run --rm -i -w /mnt -v "${PWD}:/mnt" koalaman/shellcheck:stable "$@"
 }
+
+terraform() {
+  docker run --rm -i -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
+}
+
+terraform-docker() {
+  docker run --rm -i -v /var/run/docker.sock:/var/run/docker.sock -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
+}
