@@ -55,14 +55,15 @@ alias egrep='egrep --color=auto'
 alias ll=' ls -lhF --time-style=long-iso --color=auto'
 alias la=' ls -lhFa --time-style=long-iso --color=auto'
 
-# Docker aliases
-
 ## Functions
+
 # Make a directory, then go there
 md() {
     test -n "$1" || return
     mkdir -p "$1" && cd "$1"
 }
+
+# Docker aliases
 
 # Run yq in docker container
 yq() {
@@ -74,18 +75,35 @@ jq() {
   docker run --rm -i -w /workdir -v "${PWD}":/workdir ghcr.io/jqlang/jq "$@"
 }
 
+# Run hadolint in docker container
 hadolint() {
   docker run --rm -i hadolint/hadolint hadolint "$@" 
 }
 
+# Run shellcheck in docker container
 shellcheck() {
   docker run --rm -i -w /mnt -v "${PWD}:/mnt" koalaman/shellcheck:stable "$@"
 }
 
-terraform() {
-  docker run --rm -i -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
-}
+# Run terraform in docker container
+# terraform() {
+#   docker run --rm -i -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
+# }
 
-terraform-docker() {
-  docker run --rm -i -v /var/run/docker.sock:/var/run/docker.sock -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
-}
+# Run terraform with shared docker socket in docker container
+# terraform-docker() {
+#   docker run --rm -i -v /var/run/docker.sock:/var/run/docker.sock -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
+# }
+
+# Run aws-cli2 in docker container
+# aws() {
+#   docker run --rm -it -e AWS_PROFILE -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli:latest "$@"
+# }
+
+## Auto completion
+
+# Terraform
+complete -C /usr/bin/terraform terraform
+
+# AWS CLI 2
+complete -C '/usr/local/bin/aws_completer' aws

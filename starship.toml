@@ -5,6 +5,8 @@ $directory\
 $git_branch\
 $git_commit \
 $git_status \
+$terraform \
+$aws \
 $fill\
 $sudo\
 $cmd_duration\
@@ -80,9 +82,14 @@ style = '#f7768e bold'
 ignore_submodules = false
 disabled = false
 
+[terraform]
+format = '[$symbol$version/$workspace]($style) '
+symbol = '[tf: ](#844fba bold)'
+style = ''
+
 [aws]
 format = '$symbol[($profile )(\($region\) )(\[$duration\] )]($style)'
-symbol = '[AWS ](yellow bold)'
+symbol = '[AWS: ](yellow bold)'
 style = ''
 force_display = false
 disabled = false
