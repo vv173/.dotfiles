@@ -22,8 +22,8 @@ autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 " Display a confirmation dialog when closing an unsaved file
 set confirm
 
-"Directory to store swap files
-set dir=~/.cache/vim
+"Disable swap files
+set noswapfile
 
 " Enable spellchecking
 set spell
