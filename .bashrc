@@ -108,6 +108,11 @@ shellcheck() {
   docker run --rm -i -w /mnt -v "${PWD}:/mnt" koalaman/shellcheck:stable "$@"
 }
 
+# Run kustomize in docker container
+kustomize() {
+  docker run --rm -i -w /workdir -v "${PWD}:/workdir" registry.k8s.io/kustomize/kustomize:v5.4.3 "$@"
+}
+
 # Run terraform in docker container
 # terraform() {
 #   docker run --rm -i -w /workdir -v "${PWD}:/workdir" hashicorp/terraform:latest "$@"
@@ -130,3 +135,4 @@ complete -C /usr/bin/terraform terraform
 
 # AWS CLI 2
 complete -C '/usr/local/bin/aws_completer' aws
+
