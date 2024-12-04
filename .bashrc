@@ -71,8 +71,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias ll=' ls -lhF --time-style=long-iso --color=auto'
-alias la=' ls -lhFa --time-style=long-iso --color=auto'
+alias ll='ls -lhF --time-style=long-iso --color=auto'
+alias la='ls -lhFa --time-style=long-iso --color=auto'
+alias open='xdg-open'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
