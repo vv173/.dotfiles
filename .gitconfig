@@ -5,7 +5,7 @@
 	process = git-lfs filter-process
 [user]
 	name = Viktor Vodnev
-	email = v.vodnev73@gmail.com
+	email = 83870029+vv173@users.noreply.github.com
 [init]
 	defaultBranch = main
 [core]
