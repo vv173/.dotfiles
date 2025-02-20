@@ -27,4 +27,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias current-branch='git branch --show-current | tr -d "\n"'
 
 # Add current branch name to the clipboard
-alias copy-branch='git branch --show-current | tr -d '\n' | xclip -selection clipboard'
+alias copy-branch='git branch --show-current | tr -d "\n" | xclip -selection clipboard'
