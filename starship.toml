@@ -8,25 +8,24 @@ $git_status \
 $terraform \
 $aws \
 $fill\
-$sudo\
+$kubernetes\
 $cmd_duration\
 $line_break\
 $container\
-$shell\
 $character"""
 
 [character]
 format = ' $symbol '
-success_symbol = '[>](#7dcfff bold)'
-error_symbol = '[>](red bold)'
+success_symbol = '[>](cyan)'
+error_symbol = '[>](red)'
 
 [fill]
 symbol = " "
 disabled = false
 
 [username]
-style_root = '#f7768e bold'
-style_user = '#c0caf5 bold'
+style_root = 'red'
+style_user = 'white'
 format = '[ \[$user\]:]($style)'
 show_always = false
 disabled = false
@@ -34,72 +33,80 @@ disabled = false
 [hostname]
 ssh_only = true
 ssh_symbol = ''
-style = '#7aa2f7 bold'
+style = 'blue'
 format = '[$ssh_symbol$hostname]($style)'
 disabled = false
 
 [directory]
 format = '[ $path]($style) '
-style = '#7dcfff bold'
+style = 'cyan'
 truncation_symbol = '../'
 
 [cmd_duration]
 min_time = 0
 show_milliseconds = true
 format = '[$duration]($style) '
-style = '#7dcfff bold'
+style = 'cyan'
 show_notifications = false
 
 [git_branch]
 always_show_remote = false
-style = '#bb9af7 bold'
+style = 'blue'
 format = '[\($branch(:$remote_branch)\)]($style) '
 disabled = false
 
 [git_commit]
 commit_hash_length = 7
 format = '[\($hash$tag\)]($style) '
-style = '#73daca bold'
+style = 'green'
 only_detached = true
 tag_disabled = false
 tag_symbol = ' '
 
 [git_status]
 format = '([$all_status$ahead_behind]($style) )'
-conflicted = '='
-ahead = '⇡'
-behind = '⇣'
-diverged = '⇕'
+conflicted = '‼'
+ahead = '↑'
+behind = '↓'
+diverged = '↕'
 up_to_date = ''
 untracked = '?'
 stashed = '$'
-modified = '!'
+modified = '~'
 staged = '+'
 renamed = '»'
 deleted = 'x'
 typechanged = ""
-style = '#f7768e bold'
+style = 'red'
 ignore_submodules = false
 disabled = false
 
 [terraform]
 format = '[$symbol$version/$workspace]($style) '
-symbol = '[tf: ](#844fba bold)'
+symbol = '[tf: ](purple)'
 style = ''
+#style = 'inverted fg:purple'
+
+[kubernetes]
+disabled = false
+symbol = '[K8S: ](blue)'
+style = ''
+format = '$symbol[$context]($style)(:\($namespace\)) '
 
 [aws]
-format = '$symbol[($profile )(\($region\) )(\[$duration\] )]($style)'
-symbol = '[AWS: ](yellow bold)'
+format = '$symbol($profile/)[($region)]($style)( \[$duration\])'
+symbol = '[AWS: ](yellow)'
 style = ''
+#style = 'inverted fg:yellow'
 force_display = false
 disabled = false
 
 [azure]
 format = '$symbol[($subscription)]($style) '
-symbol = '[Az ](blue bold) '
+symbol = '[Az ](blue) '
 style = ''
 
 [gcloud]
 format = '$symbol[$account(@$domain)(\($region\))]($style) '
-symbol = '[GCP ](green bold)'
+symbol = '[GCP ](green)'
 style = ''
