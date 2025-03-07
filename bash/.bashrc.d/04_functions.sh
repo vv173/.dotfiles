@@ -1,13 +1,5 @@
 # functions.sh
 
-# Make a directory, then go there
-md() {
-    test -n "$1" || return
-    mkdir -p "$1" && cd "$1"
-}
-
-# Containerized functions
-
 # Run yq in docker container
 yq() {
   docker run --rm -i -w /workdir -v "${PWD}":/workdir mikefarah/yq "$@"
