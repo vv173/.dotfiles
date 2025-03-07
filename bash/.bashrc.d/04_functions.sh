@@ -30,7 +30,7 @@ shellcheck() {
 
 # Run kustomize in docker container
 kustomize() {
-  docker run --rm -i -w /workdir -v "${PWD}:/workdir" registry.k8s.io/kustomize/kustomize:v5.4.3 "$@"
+  docker run --rm -i -w /workdir -v "${PWD}:/workdir" registry.k8s.io/kustomize/kustomize:v5.6.0 "$@"
 }
 
 # Run terraform in docker container
